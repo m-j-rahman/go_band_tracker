@@ -29,11 +29,6 @@
   
           <div class="container">
             <b class="members">Members:</b>
-          </div>
-  
-          <br>
-  
-          <div class="container">
             {{range .Members}}
             <li class="members">{{.}}</li>
             {{end}}
@@ -55,11 +50,6 @@
   
           <div class="container">
             <b class="concert"> Concerts:</b>
-          </div>
-  
-          <br>
-  
-          <div class="container">
             {{ range $key, $value := .DatesLocations}}
             <li class="relaton"><strong>{{ $key }}</strong>: {{ $value }}</li>
             {{ end }}
