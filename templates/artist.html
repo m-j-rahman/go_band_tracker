@@ -20,39 +20,50 @@
           <img src="{{.Image}}" class="picture">
   
           <br>
-
+  
+          <div class="container">
             <b class="name"> {{.Name}} </b>
-  
-          <br>
-
-            <b class="group_members">Members:</b>
+          </div>
   
           <br>
   
+          <div class="container">
+            <b class="members">Members:</b>
+          </div>
+  
+          <br>
+  
+          <div class="container">
             {{range .Members}}
             <li class="members">{{.}}</li>
             {{end}}
+          </div>
   
           <br>
   
+          <div class="container">
             <b class="creation"> Creation Date: {{.CreationDate}} </b>
-
+          </div>
   
           <br>
 
+          <div class="container">
             <b class="album"> First Album: {{.FirstAlbum}} </b>
-
+          </div>
   
           <br>
   
-            <b class="creation"> Concert Dates:</b>
- 
+          <div class="container">
+            <b class="concert"> Concert Dates:</b>
+          </div>
   
           <br>
   
+          <div class="container">
             {{ range $key, $value := .DatesLocations}}
             <li class="relaton"><strong>{{ $key }}</strong>: {{ $value }}</li>
             {{ end }}
+          </div>
   
         </div>
       </div>
