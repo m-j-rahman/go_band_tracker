@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-// Handles main page with names and pictures of all artists.
+// Handles main page with names and pictures of all artits.
 func MainPage(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" && r.Method == "GET" {
 		Err("404 Not Found", http.StatusNotFound, w)
@@ -30,7 +30,7 @@ func MainPage(w http.ResponseWriter, r *http.Request) {
 	htmlTemplate.Execute(w, ArtistsInfo)
 }
 
-// Handles pages with detailed info about specific artists.
+// Handles pages with info about specific artists.
 func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	if len(r.URL.Path) < 10 || (r.URL.Path[:9] != "/artists/") {
 		Err("404 Not Found", http.StatusNotFound, w)

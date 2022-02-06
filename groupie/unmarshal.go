@@ -38,12 +38,12 @@ func UnmarshalAPIData(url string, val interface{}, w http.ResponseWriter) {
 	}
 }
 
-// "GettingAPIData": Filling structs with data from api.
+// Filling structs with data from api.
 func GettingAPIData(w http.ResponseWriter) {
-	ArtitsURL := "https://groupietrackers.herokuapp.com/api/artists"
+	ArtistsURL := "https://groupietrackers.herokuapp.com/api/artists"
 	RelationURL := "https://groupietrackers.herokuapp.com/api/relation"
 
-	UnmarshalAPIData(ArtitsURL, &ArtistsInfo, w)
+	UnmarshalAPIData(ArtistsURL, &ArtistsInfo, w)
 	UnmarshalAPIData(RelationURL, &RelationInfo, w)
 
 	FillingDatesForArtists()
