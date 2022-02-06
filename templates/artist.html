@@ -21,41 +21,47 @@
   
           <br>
   
-          <div class="group_name_container">
-            <b class="group_name"> {{.Name}} </b>
+          <div class="name_container">
+            <b class="name"> {{.Name}} </b>
+          </div>
+  
+          <br>
+  
+          <div class="members_container">
+            <b class="members">Members:</b>
           </div>
   
           <br>
   
           <div class="group_members_container">
-            <b class="group_members">Members:</b>
-          </div>
-  
-          <br>
-  
-          <div class="members_container">
             {{range .Members}}
-            <li class="members">{{.}}</li>
+            <li class="group_members">{{.}}</li>
             {{end}}
           </div>
   
           <br>
   
-          <div class="date">
-            <b class="creation"> Creation date: {{.CreationDate}} </b>
+          <div class="creation_date_container">
+            <b class="creation_date"> Creation Date: {{.CreationDate}} </b>
           </div>
   
           <br>
   
-          <div class="date">
-            <b class="creation"> Concert dates:</b>
+          <div class="concert_dates_container">
+            <b class="concert_dates"> Concert Dates:</b>
           </div>
   
           <br>
+
+          <div class="first_album_container">
+            <b class="first_album"> First Album: {{.FirstAlbum}} </b>
+          </div>
+
+          <br>
   
-          <div class="members_container">
+          <div class="dates_locations_container">
             {{ range $key, $value := .DatesLocations}}
-            <li class="members"><strong>{{ $key }}</strong>: {{ $value }}</li>
+            <li class="dates_locations><strong>{{ $key }}</strong>: {{ $value }}</li>
             {{ end }}
           </div>
   
