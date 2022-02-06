@@ -15,55 +15,44 @@
         <b><a href="/"> Groupie Tracker </a></b>
       </div>
       <div class="container">
-        <!-- <ul> -->
+
         <div class="info">
           <img src="{{.Image}}" class="picture">
   
           <br>
-  
-          <div class="group_name_container">
-            <b class="group_name"> {{.Name}} </b>
-          </div>
-  
-          <br>
-  
-          <div class="group_members_container">
-            <b class="group_members">Members:</b>
-          </div>
-  
-          <br>
-  
-          <div class="members_container">
-            {{range .Members}}
-            <li class="members">{{.}}</li>
-            {{end}}
-          </div>
-  
-          <br>
-  
-          <div class="date">
-            <b class="creation"> Creation Date: {{.CreationDate}} </b>
-          </div>
+
+            <b class="name"> {{.Name}} </b>
   
           <br>
 
-          <div class="date">
+            <b class="group_members">Members:</b>
+  
+          <br>
+  
+            {{range .Members}}
+            <li class="members">{{.}}</li>
+            {{end}}
+  
+          <br>
+  
+            <b class="creation"> Creation Date: {{.CreationDate}} </b>
+
+  
+          <br>
+
             <b class="album"> First Album: {{.FirstAlbum}} </b>
-          </div>
+
   
           <br>
   
-          <div class="date">
             <b class="creation"> Concert Dates:</b>
-          </div>
+ 
   
           <br>
   
-          <div class="members_container">
             {{ range $key, $value := .DatesLocations}}
-            <li class="members"><strong>{{ $key }}</strong>: {{ $value }}</li>
+            <li class="relaton"><strong>{{ $key }}</strong>: {{ $value }}</li>
             {{ end }}
-          </div>
   
         </div>
       </div>
