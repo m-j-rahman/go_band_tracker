@@ -27,6 +27,7 @@ func MainPage(w http.ResponseWriter, r *http.Request) {
 
 	GettingAPIData(w)
 
+	// http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("styles"))))
 	htmlTemplate.Execute(w, ArtistsInfo)
 }
 
@@ -50,13 +51,13 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 
 	ArtistID := strings.TrimPrefix(r.URL.Path, "/artists/")
 
+	GettingAPIData(w)
+
 	ID, err := strconv.Atoi(ArtistID)
 	if err != nil {
 		Err("400 Bad Request", http.StatusBadRequest, w)
 		return
 	}
-
-	GettingAPIData(w)
 
 	if len(ArtistsInfo) < ID {
 		Err("404 Not Found", http.StatusNotFound, w)
@@ -76,6 +77,8 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 
 // Calls handle functions.
 func MainHandler() {
+	http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("styles"))))
+
 	http.HandleFunc("/", MainPage)
 	http.HandleFunc("/artists/", ArtistPage)
 	http.ListenAndServe(":8080", nil)

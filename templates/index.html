@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Artist Info</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groupie Tracker</title>
-</head>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="/styles/style.css" />
+    </head>
 
-<body>
-  <div class="every">
-    <div class="header">
-      <b>Groupie Tracker</b>
-    </div>
-    <div class="container">
-      {{range .}}
-      <div class="all">
-        <div class="group">
-          <b><a href="/artists/{{.ID}}"><img src="{{.Image}}" class="picture"></a></b></br>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Groupie Tracker</h1>
+            </header>
+    
+            <div class="groups">
+                {{range .}}
+                <div class="groups__single">
+                    <a href="/artists/{{.ID}}"><img src="{{.Image}}" class="picture"></a></br>
+                    <a href="/artists/{{.ID}}" class="name">{{ .Name }}</a>
+                </div>
+                {{end}}
+            </div>
         </div>
-        <b><a href="/artists/{{.ID}}" class="group_name">{{ .Name }}</a></b>
-      </div>
-      {{end}}
-    </div>
-  </div>
-</body>
-
+    </body>
 </html>

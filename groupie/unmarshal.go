@@ -12,10 +12,13 @@ var ArtistsInfo []Artists
 // struct Relation found in 'structs.go').
 var RelationInfo = Relation{}
 
+var LocationsInfo = Location{}
+
 // Filling DatesLocations of struct Artists.
 func FillingDatesForArtists() {
 	for index := range ArtistsInfo {
 		ArtistsInfo[index].DatesLocations = RelationInfo.Index[index].DatesLocations
+		ArtistsInfo[index].Location = LocationsInfo.Index[index].Loc
 	}
 }
 
@@ -43,6 +46,8 @@ func GettingAPIData(w http.ResponseWriter) {
 	ArtistsURL := "https://groupietrackers.herokuapp.com/api/artists"
 	RelationURL := "https://groupietrackers.herokuapp.com/api/relation"
 
+	LocationURL := "https://groupietrackers.herokuapp.com/api/locations"
+	UnmarshalAPIData(LocationURL, &LocationsInfo, w)
 	UnmarshalAPIData(ArtistsURL, &ArtistsInfo, w)
 	UnmarshalAPIData(RelationURL, &RelationInfo, w)
 

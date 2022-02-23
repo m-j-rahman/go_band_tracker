@@ -1,0 +1,33 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    border: 1px solid blue;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+
+    .groups {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+
+        &__single {
+            .picture {
+                border-radius: 50%;
+            }
+            padding: 5px;
+            background-color: #f2f2f2;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}

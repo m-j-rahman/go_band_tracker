@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Artist Info</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Info</title>
-</head>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="/styles/style.css" />
+    </head>
 
-<body>
-    <div class="every">
-      <div class="header">
-        <b><a href="/"> Groupie Tracker </a></b>
-      </div>
-      <div class="container">
+    <body>
+        <div class="container">
+            <div class="artist">
+                <h1>{{.Name}}</h1>
+                <img src="{{.Image}}" class="picture" />
 
-        <div class="info">
-          <img src="{{.Image}}" class="picture">
-  
-          <br>
-  
-          <div class="container">
-            <b class="name"> {{.Name}} </b>
-          </div>
-  
-          <br>
-  
-          <div class="container">
-            <b class="members">Members:</b>
-            {{range .Members}}
-            <li class="members">{{.}}</li>
-            {{end}}
-          </div>
-  
-          <br>
-  
-          <div class="container">
-            <b class="creation"> Creation Date: {{.CreationDate}} </b>
-          </div>
-  
-          <br>
+                <section class="artist__members">
+                  <h2>Members</h2>
+                    {{range .Members}}
+                    <ul class="artist__members__list">
+                        <li>{{.}}</li>
+                    </ul>
+                    {{end}}
+                </section>
 
-          <div class="container">
-            <b class="album"> First Album: {{.FirstAlbum}} </b>
-          </div>
-  
-          <br>
-  
-          <div class="container">
-            <b class="concert"> Concerts:</b>
-            {{ range $key, $value := .DatesLocations}}
-            <li class="relaton"><strong>{{ $key }}</strong>: {{ $value }}</li>
-            {{ end }}
-          </div>
-  
+                <section class="artist__creation">
+                    <h2>Creation Date</h2>
+                    <p>{{.CreationDate}}</p>
+                </section>
+
+                <section class="artist__firstAlbum">
+                    <h2>First Album</h2>
+                    <p>{{.FirstAlbum}}</p>
+                </section>
+
+
+                <!-- <section class="artist__concerts">
+                    <h2>Concerts</h2>
+                    {{ range $key, $value := .DatesLocations}}
+                    <ul>
+                      <li>{{$key}} - {{ $value }}</li>
+                    </ul>
+                    {{end}}
+                </section> -->
+
+                <section class="artist__locations">
+                  <h2>Locations</h2>
+                  {{ range $loc := .Location }}
+                    {{ range $key, $val := $.DatesLocations}}
+                      {{if eq $loc $key}}
+                      <p>{{$key}} - {{$val}}</p>
+                      {{end}}
+                    {{end}}
+                  {{end}}
+
+                </section>
+            </div>
+            <div class="header">
+                <a href="/"> <i class="fas fa-arrow-left"></i> </a>
+            </div>
         </div>
-      </div>
-    </div>
-  
-  </body>
-  
-  </html>
+    </body>
+</html>
